@@ -1,0 +1,25 @@
+table Professores as P {
+  cpf varchar [pk]
+  sexo_id int [ref: > Sexos.id, not null]
+  idade int [not null]
+  materia_id int [ref: > M.id]
+}
+
+table Estudantes as E {
+  cpf varchar [pk]
+  matricula varchar [not null, unique]
+  nome varchar [not null]
+  idade int [not null]
+  sexo_id int [ref: > Sexos.id]
+  professor_id varchar [ref: > P.cpf]
+}
+
+table Sexos {
+  id int [pk]
+  name varchar [not null]
+}
+
+table Materias as M {
+  id int [pk]
+  name varchat [not null]
+}
